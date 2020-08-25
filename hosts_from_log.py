@@ -27,6 +27,10 @@ def show_progress(current, total):
 	remaining = 100 - done
 	print(f"\r{CGREEN}{'|' * done}{CGREY}{'|' * remaining}{CEND} {done}%", end="")
 
+
+######################
+# NOT CURRENTLY USED
+######################
 def lookup_hosts(hosts):
 	# Lookup each address
 
@@ -132,5 +136,5 @@ def main():
 	save_hosts(hosts)
 	print(f"\nSaved {len(hosts):,} addresses to {hostfile}")
 
-
-main()
+if __name__ == '__main__':
+	main()

@@ -120,7 +120,7 @@ def main():
 	blacklist = load_blacklist()
 	check_for_duplicates(blacklist)
 	check_for_overlaps(blacklist)
-	save_consilidated_blacklist(sorted_domain_dict(blacklist), 'test_blacklist.conf')
+# 	save_consilidated_blacklist(sorted_domain_dict(blacklist), 'test_blacklist.conf')
 
 if __name__ == "__main__":
 	main()

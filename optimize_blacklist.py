@@ -30,7 +30,12 @@ for domain in blacklist:
 	domains_for_depth.append(domain)
 	domain_depth_map[depth] = domains_for_depth
 	
-	
+
+
+# sort domain_depth_map by ascending depth
+domain_depth_map = {k: domain_depth_map[k] for k in sorted(domain_depth_map.keys())}
+
+
 for k, v in domain_depth_map.items():
 	print(f"depth {k} has {len(v)} domains")
 	

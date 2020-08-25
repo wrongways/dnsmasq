@@ -4,6 +4,7 @@
 import re
 import socket
 from pathlib import Path
+from optimize_blacklist import load_blacklist, is_blacklisted
 
 logfile = '/var/log/dnsmasq.log'
 hostfile = 'hosts'
@@ -78,30 +79,6 @@ def hosts_from_logfile(logfile):
 
 	return hosts
 
-def is_blacklisted(host, blacklist):
-	for domain in blacklist:
-		if host.endswith(domain):
-			return True
-
-	return False
-
-def load_blacklist():
-	blacklisted_domains = {}
-	cwd = Path('.')
-	for conffile in cwd.glob('*.conf'):
-		linenum = 0
-		with open(conffile) as f:
-			for line in f:
-				if line.startswith('address'):
-					domain = line.split("/")[1]
-					domain = domain.lower()
-					file_refs = blacklisted_domains.get(domain, [])
-					file_refs.append((conffile, linenum))
-					blacklisted_domains[domain] = file_refs
-					
-				linenum += 1
-
-	return blacklisted_domains
 
 def remove_blacklisted_hosts(hosts, blacklist):
 	to_delete = set()

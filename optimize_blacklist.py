@@ -3,10 +3,35 @@
 
 from pathlib import Path
 
-import hosts_from_log as utils
+
+def load_blacklist():
+	blacklisted_domains = {}
+	cwd = Path('.')
+	for conffile in cwd.glob('*.conf'):
+		linenum = 0
+		with open(conffile) as f:
+			for line in f:
+				if line.startswith('address'):
+					domain = line.split("/")[1]
+					domain = domain.lower()
+					file_refs = blacklisted_domains.get(domain, [])
+					file_refs.append((conffile, linenum))
+					blacklisted_domains[domain] = file_refs
+					
+				linenum += 1
+
+	return blacklisted_domains
+	
+	
+def is_blacklisted(domain, blacklist):
+	for black_domain in blacklist:
+		if is_subdomain(black_domain, domain):
+			return True
+			
+	return False
 
 
-# input is two lists of strings: ["ibm", "com"] & ["www", "ibm", "com"]
+# input is two lists of strings: "ibm.com" & "www.ibm.com"
 # checks if the trailing part of domain_to_test, matches top_domain
 def is_subdomain(top_domain, domain_to_test):
 	top_domain_list = top_domain.split('.')
@@ -29,7 +54,10 @@ def domains_by_depth(blacklist):
 	return {k: domain_depth_map[k] for k in sorted(domain_depth_map.keys())}
 
 
-def check_for_duplicates(blacklist):
+def check_for_duplicates(blacklist, verbose=True):
+	if verbose:
+		print("Checking for blacklist duplicates...")
+	
 	for domain, file_refs in blacklist.items():
 		if len(file_refs) > 1:
 			print(domain)
@@ -38,7 +66,10 @@ def check_for_duplicates(blacklist):
 				
 				
 # for each depth, find/remove any deeper domains covered by a rule at this depth
-def check_for_overlaps(blacklist, remove=False):
+def check_for_overlaps(blacklist, remove=False, verbose=True):
+
+	if verbose:
+		print("Checking blacklist for overlaps...")
 	domain_depth_map = domains_by_depth(blacklist)
 	depths = sorted(domain_depth_map.keys())
 	for i, depth in enumerate(depths[:-2]):
@@ -73,10 +104,11 @@ def print_depthmap_info(domain_depth_map, verbose=False):
 			for domain in domains:
 				print("  ", domain)
 	
+def main():
+	blacklist = load_blacklist()
+	check_for_duplicates(blacklist)
+	check_for_overlaps(blacklist)
 
-blacklist = utils.load_blacklist()
-check_for_duplicates(blacklist)
-check_for_overlaps(blacklist)
-
-
+if __name__ == "__main__":
+	main()
 

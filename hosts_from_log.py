@@ -4,7 +4,7 @@
 import re
 import socket
 from pathlib import Path
-from optimize_blacklist import load_blacklist, is_blacklisted, sort_domain_dict
+from optimize_blacklist import load_blacklist, is_blacklisted, sorted_domain_dict
 
 logfile = '/var/log/dnsmasq.log'
 hostfile = 'hosts'
@@ -109,7 +109,7 @@ def main():
 	print(f"Identified {hosts_count:,} distinct hosts, of which {deleted_hosts:,} are blacklisted")
 	print(f"{len(hosts):,} hosts remaining")
 
-	hosts = sort_domain_dict(hosts)
+	hosts = sorted_domain_dict(hosts)
 	save_hosts(hosts)
 	print(f"\nSaved {len(hosts):,} addresses to {hostfile}")
 

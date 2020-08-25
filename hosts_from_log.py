@@ -86,14 +86,20 @@ def is_blacklisted(host, blacklist):
 	return False
 
 def load_blacklist():
-	blacklisted_domains = set()
+	blacklisted_domains = {}
 	cwd = Path('.')
 	for conffile in cwd.glob('*.conf'):
+		linenum = 0
 		with open(conffile) as f:
 			for line in f:
 				if line.startswith('address'):
 					domain = line.split("/")[1]
-					blacklisted_domains.add(domain.lower())
+					domain = domain.lower()
+					file_refs = blacklisted_domains.get(domain, [])
+					file_refs.append((conffile, linenum))
+					blacklisted_domains[domain] = file_refs
+					
+				linenum += 1
 
 	return blacklisted_domains
 
@@ -123,7 +129,7 @@ def save_hosts(hosts):
 
 
 def main():
-	blacklist = load_blacklist()
+	blacklist = set(load_blacklist().keys())
 	hosts = hosts_from_logfile(logfile)
 	hosts_count = len(hosts)
 	print()

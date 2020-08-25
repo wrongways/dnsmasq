@@ -3,7 +3,6 @@
 
 from pathlib import Path
 
-
 def load_blacklist():
 	blacklisted_domains = {}
 	cwd = Path('.')
@@ -53,6 +52,13 @@ def domains_by_depth(blacklist):
 	# sort domain_depth_map by ascending depth
 	return {k: domain_depth_map[k] for k in sorted(domain_depth_map.keys())}
 
+
+def sort_domain_dict(hosts):
+	keys = hosts.keys()
+	reverse_domain = sorted([".".join(reversed(host.split("."))) for host in keys])
+	new_keys = [".".join(reversed(host.split("."))) for host in reverse_domain]
+	return {k:hosts[k] for k in new_keys}
+	
 
 def check_for_duplicates(blacklist, verbose=True):
 	if verbose:
@@ -111,7 +117,7 @@ def main():
 	blacklist = load_blacklist()
 	check_for_duplicates(blacklist)
 	check_for_overlaps(blacklist)
-	save_consilidated_blacklist(blacklist, 'test_blacklist.conf')
+	save_consilidated_blacklist(sorted_hosts(blacklist), 'test_blacklist.conf')
 
 if __name__ == "__main__":
 	main()

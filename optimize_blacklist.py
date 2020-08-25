@@ -20,6 +20,12 @@ blacklist = utils.load_blacklist()
 print(f"Got blacklist: {len(blacklist)} entries")
 
 
+# check for duplicates
+for domain, file_refs in blacklist.items():
+	if len(file_refs) > 1:
+		print(domain)
+		for (file_path, linenum) in file_refs:
+			print("  ", file_path.name, linenum)
 
 # build a dict with domain depth as key (.com = 1, .co.uk = 2, ibm.com=2 etc)
 domain_depth_map = {}

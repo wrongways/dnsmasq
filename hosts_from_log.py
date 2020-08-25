@@ -7,7 +7,7 @@
 import re
 import socket
 from pathlib import Path
-from optimize_blacklist import load_blacklist, is_blacklisted, sorted_domain_dict
+from blacklist import load_blacklist, is_blacklisted, sorted_domain_dict
 
 logfile = '/var/log/dnsmasq.log'
 hostfile = 'hosts'

@@ -90,7 +90,10 @@ def check_for_overlaps(blacklist, remove=False, verbose=True):
 							lower_domains.remove(lower_domain)
 
 
-	
+def save_consilidated_blacklist(blacklist, filename):
+	with open(filename, "w") as f:
+		for domain in blacklist:
+			f.write(f"address=/{domain}/#\n")
 
 def print_depthmap_info(domain_depth_map, verbose=False):
 	print(f"Blacklist with {len(blacklist)} entries")
@@ -108,6 +111,7 @@ def main():
 	blacklist = load_blacklist()
 	check_for_duplicates(blacklist)
 	check_for_overlaps(blacklist)
+	save_consilidated_blacklist(blacklist, 'test_blacklist.conf')
 
 if __name__ == "__main__":
 	main()

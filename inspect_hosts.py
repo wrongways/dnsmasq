@@ -5,7 +5,7 @@ dodgy = ["ad.", "ads", "adv", "track", "google", "facebook", "fb", "insight",
 		 "pixel", "click", "target", "stat", "deal", "tag", "anal",
 		 "classifieds"]
 		 
-allowed = ["static", "googlevideo", "cloudfront.net"]
+whitelist = ["static", "googlevideo", "cloudfront.net"]
 		 
 blacklist = []
 
@@ -16,7 +16,7 @@ with open("hosts", "r+") as f:
 		host = line.strip().split()[1]
 		for trigger in sorted(dodgy):
 			if trigger in host:
-				for ok in allowed:
+				for ok in whitelist:
 					if ok in host:
 						break
 				resp = input(f"Delete {host}? ").lower()

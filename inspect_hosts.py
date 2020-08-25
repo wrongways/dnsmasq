@@ -5,7 +5,9 @@ dodgy = ["ad.", "ads", "adv", "track", "google", "facebook", "fb", "insight",
 		 "pixel", "click", "target", "stat", "deal", "tag", "anal",
 		 "classifieds"]
 		 
-to_blacklist = []
+allowed = ["static", "googlevideo", "cloudfront.net"]
+		 
+blacklist = []
 
 with open("hosts", "r+") as f:
 	lines = f.readlines()
@@ -14,11 +16,12 @@ with open("hosts", "r+") as f:
 		host = line.strip().split()[1]
 		for trigger in sorted(dodgy):
 			if trigger in host:
-				print(host)
-				resp = input("Delete? ").lower()
+				for ok in allowed:
+					if ok in host:
+						break
+				resp = input(f"Delete {host}? ").lower()
 				if resp == "y":
-					lines_to_delete.append(linenum)
-					to_blacklist.append(host)
+					blacklist.append(host)
 					break
 				else:
 					f.write(line)

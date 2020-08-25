@@ -6,9 +6,9 @@ dodgy = ["ad.", "ads", "adv", "track", "google", "facebook", "fb", "insight",
 		 "classifieds"]
 		 
 whitelist = ["static", "googlevideo", "cloudfront.net", "adventures", "adjust",
-			 "state", "upload", "roads", "reads", "youtube", "ytimg", "ajax",
+			 "state", "upload", "download", "roads", "reads", "youtube", "ytimg", "ajax",
 			 "googleapis", "loopinsight", "advance", "leads", "spotify", "typepad",
-			 "advisor", "cloudflare.net", "bluemix", "advocate", "stage"]
+			 "advisor", "cloudflare.net", "bluemix", "advocate", "stage", "instagram"]
 		 
 blacklist = []
 

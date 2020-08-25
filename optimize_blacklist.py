@@ -1,5 +1,8 @@
-#!/usr/bin/env python3
+#! /usr/bin/env python3
 # -*- encoding: utf-8 -*-
+
+# Copyright © Jez Wain 2020
+
 
 from pathlib import Path
 

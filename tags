@@ -1,0 +1,74 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/6e5c9a9/
+addresses	update_conf_files.py	176;"	v	line:176	access:public
+blacklist	inspect_hosts.py	17;"	v	line:17	access:public
+blacklist	update_conf_files.py	11;"	v	line:11	access:public
+blocked_counts	update_conf_files.py	31;"	v	line:31	access:public
+blocked_hosts	update_conf_files.py	96;"	v	line:96	access:public
+cached_counts	update_conf_files.py	30;"	v	line:30	access:public
+check_for_duplicates	blacklist.py	66;"	f	line:66	access:public	signature:(blacklist, verbose=True)
+check_for_overlaps	blacklist.py	78;"	f	line:78	access:public	signature:(blacklist, remove=False, verbose=True)
+distinct_address	update_conf_files.py	189;"	v	line:189	access:public
+distinct_hosts	update_conf_files.py	177;"	v	line:177	access:public
+dodgy	inspect_hosts.py	8;"	v	line:8	access:public
+domains	update_conf_files.py	128;"	v	line:128	access:public
+domains_by_depth	blacklist.py	45;"	f	line:45	access:public	signature:(blacklist)
+fields	update_conf_files.py	47;"	v	line:47	access:public
+here	update_conf_files.py	122;"	v	line:122	access:public
+host	inspect_hosts.py	35;"	v	line:35	access:public
+host_addresses	update_conf_files.py	104;"	v	line:104	access:public
+host_addresses	update_conf_files.py	89;"	v	line:89	access:public
+hostfile	hosts_from_log.py	13;"	v	line:13	access:public
+hosts	update_conf_files.py	183;"	v	line:183	access:public
+hosts	update_conf_files.py	34;"	v	line:34	access:public
+hosts_counts	update_conf_files.py	32;"	v	line:32	access:public
+hosts_from_logfile	hosts_from_log.py	65;"	f	line:65	access:public	signature:(logfile)
+ip_address	update_conf_files.py	102;"	v	line:102	access:public
+ip_regex	update_conf_files.py	38;"	v	line:38	access:public
+is_blacklisted	blacklist.py	28;"	f	line:28	access:public	signature:(domain, blacklist)
+is_dodgy	inspect_hosts.py	19;"	f	line:19	access:public	signature:(host)
+is_ipaddress	hosts_from_log.py	15;"	f	line:15	access:public	signature:(host)
+is_ipv4	hosts_from_log.py	22;"	f	line:22	access:public	signature:(host)
+is_ipv6	hosts_from_log.py	18;"	f	line:18	access:public	signature:(host)
+is_subdomain	blacklist.py	38;"	f	line:38	access:public	signature:(top_domain, domain_to_test)
+last_config_host	update_conf_files.py	70;"	v	line:70	access:public
+last_hosts_host	update_conf_files.py	77;"	v	line:77	access:public
+last_reply_host	update_conf_files.py	58;"	v	line:58	access:public
+line	update_conf_files.py	86;"	v	line:86	access:public
+linenum	update_conf_files.py	129;"	v	line:129	access:public
+linenum	update_conf_files.py	83;"	v	line:83	access:public
+lines	inspect_hosts.py	32;"	v	line:32	access:public
+lines	update_conf_files.py	126;"	v	line:126	access:public
+load_blacklist	blacklist.py	9;"	f	line:9	access:public	signature:()
+logfile	hosts_from_log.py	12;"	v	line:12	access:public
+logfile_name	update_conf_files.py	10;"	v	line:10	access:public
+longest_domain_path	update_conf_files.py	123;"	v	line:123	access:public
+longest_domain_path	update_conf_files.py	141;"	v	line:141	access:public
+lookup_hosts	hosts_from_log.py	38;"	f	line:38	access:public	signature:(hosts)
+main	blacklist.py	119;"	f	line:119	access:public	signature:()
+main	hosts_from_log.py	105;"	f	line:105	access:public	signature:()
+non_blocked_hosts	update_conf_files.py	95;"	v	line:95	access:public
+path_entry	update_conf_files.py	143;"	v	line:143	access:public
+path_len	update_conf_files.py	142;"	v	line:142	access:public
+paths	update_conf_files.py	124;"	v	line:124	access:public
+plt	update_conf_files.py	7;"	I	line:7
+print_depthmap_info	blacklist.py	107;"	f	line:107	access:public	signature:(domain_depth_map, verbose=False)
+print_hosts	hosts_from_log.py	95;"	f	line:95	access:public	signature:(hosts)
+query_counts	update_conf_files.py	29;"	v	line:29	access:public
+remove_blacklisted_hosts	hosts_from_log.py	86;"	f	line:86	access:public	signature:(hosts, blacklist)
+replies	update_conf_files.py	33;"	v	line:33	access:public
+reply_addresses	update_conf_files.py	63;"	v	line:63	access:public
+resp	inspect_hosts.py	37;"	v	line:37	access:public
+save_consilidated_blacklist	blacklist.py	102;"	f	line:102	access:public	signature:(blacklist, filename)
+save_hosts	hosts_from_log.py	99;"	f	line:99	access:public	signature:(hosts)
+show_progress	hosts_from_log.py	26;"	f	line:26	access:public	signature:(current, total)
+sort_domains_by_fqn	update_conf_files.py	14;"	f	line:14	access:public	signature:(domain_list, reverse=False)
+sorted_domain_dict	blacklist.py	59;"	f	line:59	access:public	signature:(hosts)
+sorted_paths	update_conf_files.py	165;"	v	line:165	access:public
+total_addresses	update_conf_files.py	178;"	v	line:178	access:public
+total_hosts	update_conf_files.py	190;"	v	line:190	access:public
+whitelist	inspect_hosts.py	12;"	v	line:12	access:public
